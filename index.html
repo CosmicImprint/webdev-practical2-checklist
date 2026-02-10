@@ -21,7 +21,10 @@
    <section id="content" hidden>
      <h2>Practical 2 – Bare Minimum Checklist</h2>
   <h2>You Got This <3.</h2>
-
+<div id="progress-wrapper">
+  <label for="progress">Overall progress</label>
+  <progress id="progress" value="0" max="100"></progress>
+</div>
   <div id="progress-container">
     <label for="progress">Progress</label>
     <progress id="progress" value="0" max="100"></progress>
@@ -30,7 +33,10 @@
 
 <!-- SECTION 1 -->
 <details open>
-  <summary>1. Setup & Hosting (Non-negotiable)</summary>
+  <summary>
+  1. Setup & Hosting (Non-negotiable)
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> Site uploaded to Mayar</label></li>
     <li><label><input type="checkbox"> Uses Lochnagar database</label></li>
@@ -42,7 +48,10 @@
 
 <!-- SECTION 2 -->
 <details>
-  <summary>2. Required Pages</summary>
+    <summary>
+  2. Required Pages
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> Home page</label></li>
     <li><label><input type="checkbox"> Login page</label></li>
@@ -55,7 +64,10 @@
 
 <!-- SECTION 3 -->
 <details>
-  <summary>3. Planning & Documentation</summary>
+    <summary>
+  3. Planning & Documentation
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> Navigation flowchart created</label></li>
     <li><label><input type="checkbox"> Database schema / ER diagram created</label></li>
@@ -66,7 +78,10 @@
 
 <!-- SECTION 4 -->
 <details>
-  <summary>4. Database</summary>
+    <summary>
+  4. Database
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> users table</label></li>
     <li><label><input type="checkbox"> posts table</label></li>
@@ -78,7 +93,10 @@
 
 <!-- SECTION 5 -->
 <details>
-  <summary>5. User Authentication</summary>
+    <summary>
+  5. User Authentication
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> Registration form exists</label></li>
     <li><label><input type="checkbox"> Users can register</label></li>
@@ -96,7 +114,10 @@
 
 <!-- SECTION 6 -->
 <details>
-  <summary>6. Core Functionality (Most of the Marks)</summary>
+    <summary>
+  6. Core Functionality (Most of the Marks)
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> Profile pages generated dynamically via user ID</label></li>
     <li><label><input type="checkbox"> Users can search for other users</label></li>
@@ -110,7 +131,10 @@
 
 <!-- SECTION 7 -->
 <details>
-  <summary>7. JavaScript (Keep It Simple)</summary>
+     <summary>
+  7. JavaScript (Keep It Simple)
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> JavaScript DOM events used</label></li>
     <li><label><input type="checkbox"> Users can like a post</label></li>
@@ -120,7 +144,10 @@
 
 <!-- SECTION 8 -->
 <details>
-  <summary>8. Design & Usability</summary>
+       <summary>
+  8. Design & Usability
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> Readable fonts chosen</label></li>
     <li><label><input type="checkbox"> Clear text/background contrast</label></li>
@@ -135,7 +162,10 @@
 
 <!-- SECTION 9 -->
 <details>
-  <summary>9. Content Requirements</summary>
+  <summary>
+  9. Content Requirements
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> Website logo appears on every page</label></li>
     <li><label><input type="checkbox"> Bootstrap carousel on homepage</label></li>
@@ -150,7 +180,10 @@
 
 <!-- SECTION 10 -->
 <details>
-  <summary>10. Responsiveness (Bootstrap)</summary>
+   <summary>
+  10. Responsiveness (Bootstrap)
+  <span class="status"></span>
+</summary>
   <ul>
     <li><label><input type="checkbox"> Bootstrap grid / layout components used</label></li>
     <li><label><input type="checkbox"> Site works on desktop</label></li>
@@ -158,7 +191,63 @@
     <li><label><input type="checkbox"> Tested on at least two browsers</label></li>
     <li><label><input type="checkbox"> Screenshots of responsive views taken</label></li>
 
+<!-- SECTION 11 -->
+<details>
+     <summary>
+  11. Security & Legal
+  <span class="status"></span>
+</summary>
+  <ul>
+    <li><label><input type="checkbox"> Passwords are hashed</label></li>
+    <li><label><input type="checkbox"> Prepared statements / secure DB interaction used</label></li>
+    <li><label><input type="checkbox"> Restricted pages require login</label></li>
+    <li><label><input type="checkbox"> Data protection principles discussed</label></li>
+    <li><label><input type="checkbox"> Password security discussed</label></li>
+    <li><label><input type="checkbox"> Copyright considerations discussed</label></li>
+    <li><label><input type="checkbox"> W3C / GDPR / accessibility guidance referenced</label></li>
+  </ul>
+</details>
 
+<!-- SECTION 12 -->
+<details>
+     <summary>
+  12. Report Checklist 
+  <span class="status"></span>
+</summary>
+  <ul>
+    <li><label><input type="checkbox"> 1500 words ±10%</label></li>
+    <li><label><input type="checkbox"> Title page included</label></li>
+    <li><label><input type="checkbox"> Working Mayar URL included</label></li>
+    <li><label><input type="checkbox"> Introduction section written</label></li>
+    <li><label><input type="checkbox"> Procedure / Methodology section written</label></li>
+    <li><label><input type="checkbox"> Usability section written</label></li>
+    <li><label><input type="checkbox"> Bootstrap section written</label></li>
+    <li><label><input type="checkbox"> Security & Legal section written</label></li>
+    <li><label><input type="checkbox"> Conclusion written</label></li>
+    <li><label><input type="checkbox"> Harvard references included</label></li>
+    <li><label><input type="checkbox"> In-text citations included</label></li>
+    <li><label><input type="checkbox"> Screenshots labelled and referenced</label></li>
+    <li><label><input type="checkbox"> Diagrams included and explained</label></li>
+  </ul>
+</details>
+
+<!-- SECTION 13 -->
+<details>
+     <summary>
+  13. Submission of Files
+  <span class="status"></span>
+</summary>
+  <ul>
+    <li><label><input type="checkbox"> Report filename correct</label></li>
+    <li><label><input type="checkbox"> Zip filename correct</label></li>
+    <li><label><input type="checkbox"> Website source code included</label></li>
+    <li><label><input type="checkbox"> Navigation flowchart included</label></li>
+    <li><label><input type="checkbox"> Database schema included</label></li>
+    <li><label><input type="checkbox"> Database connection file included</label></li>
+    <li><label><input type="checkbox"> Planning documents included</label></li>
+    <li><label><input type="checkbox"> Report is NOT inside the zip</label></li>
+  </ul>
+</details>
   </main>
 
   <script src="auth.js"></script>
