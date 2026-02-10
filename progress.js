@@ -1,25 +1,50 @@
-const checkboxes = document.querySelectorAll('#content input[type="checkbox"]');
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const progressBar = document.getElementById('progress');
-const progressText = document.getElementById('progress-text');
+
+// Load saved state
+checkboxes.forEach((box, index) => {
+  const saved = localStorage.getItem(`check-${index}`);
+  box.checked = saved === "true";
+});
+
+// Save state + update UI
+checkboxes.forEach((box, index) => {
+  box.addEventListener('change', () => {
+    localStorage.setItem(`check-${index}`, box.checked);
+    updateProgress();
+    updateSections();
+  });
+});
 
 function updateProgress() {
   const total = checkboxes.length;
-  const checked = document.querySelectorAll('#content input[type="checkbox"]:checked').length;
-  const percentage = Math.round((checked / total) * 100);
+  const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+  const percent = Math.round((checked / total) * 100);
 
-  progressBar.value = percentage;
-  progressText.textContent = `${percentage}%`;
-
-  localStorage.setItem('checklistProgress', JSON.stringify(
-    Array.from(checkboxes).map(cb => cb.checked)
-  ));
+  if (progressBar) {
+    progressBar.value = percent;
+    progressBar.textContent = `${percent}%`;
+  }
 }
 
-// Load saved progress
-const saved = JSON.parse(localStorage.getItem('checklistProgress'));
-if (saved) {
-  checkboxes.forEach((cb, i) => cb.checked = saved[i]);
+function updateSections() {
+  document.querySelectorAll('details').forEach(section => {
+    const boxes = section.querySelectorAll('input[type="checkbox"]');
+    const checked = section.querySelectorAll('input[type="checkbox"]:checked');
+    const status = section.querySelector('.status');
+
+    if (!status) return;
+
+    if (boxes.length > 0 && boxes.length === checked.length) {
+      status.textContent = "✔ Complete";
+      status.classList.add("complete");
+    } else {
+      status.textContent = "";
+      status.classList.remove("complete");
+    }
+  });
 }
 
-checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+// Initial update
 updateProgress();
+updateSections();
