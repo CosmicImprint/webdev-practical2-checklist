@@ -44,7 +44,21 @@ function updateSections() {
     }
   });
 }
+if (percent === 100) {
+  duckShower();
+}
+function duckShower() {
+  for (let i = 0; i < 30; i++) {
+    const duck = document.createElement('div');
+    duck.textContent = "🦆";
+    duck.className = "duck";
+    duck.style.left = Math.random() * 100 + "vw";
+    duck.style.animationDuration = 2 + Math.random() * 2 + "s";
+    document.body.appendChild(duck);
 
+    setTimeout(() => duck.remove(), 4000);
+  }
+}
 // Initial update
 updateProgress();
 updateSections();
