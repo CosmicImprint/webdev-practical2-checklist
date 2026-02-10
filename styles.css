@@ -1,0 +1,28 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f8f8f8;
+  color: #222;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+}
+
+input, button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+#error {
+  color: #b00020;
+}
