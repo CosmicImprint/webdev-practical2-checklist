@@ -1,13 +1,16 @@
+// Grab all checkboxes and progress bar
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const progressBar = document.getElementById('progress');
 
-// Load saved state
+let ducksFired = false; // prevent repeated duck storms
+
+// Load saved checkbox state
 checkboxes.forEach((box, index) => {
   const saved = localStorage.getItem(`check-${index}`);
   box.checked = saved === "true";
 });
 
-// Save state + update UI
+// Listen for checkbox changes
 checkboxes.forEach((box, index) => {
   box.addEventListener('change', () => {
     localStorage.setItem(`check-${index}`, box.checked);
@@ -16,6 +19,7 @@ checkboxes.forEach((box, index) => {
   });
 });
 
+// Update overall progress bar + trigger ducks
 function updateProgress() {
   const total = checkboxes.length;
   const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
@@ -23,19 +27,30 @@ function updateProgress() {
 
   if (progressBar) {
     progressBar.value = percent;
-    progressBar.textContent = `${percent}%`;
+  }
+
+  // Duck shower at 100%
+  if (percent === 100 && !ducksFired) {
+    duckShower();
+    ducksFired = true;
+  }
+
+  // Allow re-trigger if progress drops
+  if (percent < 100) {
+    ducksFired = false;
   }
 }
 
+// Update section completion indicators
 function updateSections() {
   document.querySelectorAll('details').forEach(section => {
     const boxes = section.querySelectorAll('input[type="checkbox"]');
     const checked = section.querySelectorAll('input[type="checkbox"]:checked');
     const status = section.querySelector('.status');
 
-    if (!status) return;
+    if (!status || boxes.length === 0) return;
 
-    if (boxes.length > 0 && boxes.length === checked.length) {
+    if (boxes.length === checked.length) {
       status.textContent = "✔ Complete";
       status.classList.add("complete");
     } else {
@@ -44,9 +59,8 @@ function updateSections() {
     }
   });
 }
-if (percent === 100) {
-  duckShower();
-}
+
+// Duck shower animation
 function duckShower() {
   for (let i = 0; i < 30; i++) {
     const duck = document.createElement('div');
@@ -59,6 +73,7 @@ function duckShower() {
     setTimeout(() => duck.remove(), 4000);
   }
 }
-// Initial update
+
+// Initial run on page load
 updateProgress();
 updateSections();
